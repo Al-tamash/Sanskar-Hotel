@@ -11,7 +11,7 @@ export default function VirtualTourSection() {
   }
 
   return (
-    <section id='virtual-tour' className='py-20 px-4 bg-accent/30'>
+    <section id='virtual-tour' className='py-20 px-4 bg-background'>
       <div className='max-w-6xl mx-auto'>
         <motion.div
           initial='initial'

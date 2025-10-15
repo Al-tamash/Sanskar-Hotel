@@ -16,6 +16,14 @@ import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
 import CookieConsent from '@/components/CookieConsent'
 import FloatingCTA from '@/components/FloatingCTA'
+import BenefitsStrip from '@/components/BenefitsStrip'
+import TrustBadges from '@/components/TrustBadges'
+import BookingWidget from '@/components/BookingWidget'
+import PackagesSection from '@/components/PackagesSection'
+import FAQSection from '@/components/FAQSection'
+import StickyBookingBar from '@/components/StickyBookingBar'
+import LocalAttractions from '@/components/LocalAttractions'
+import NewsletterSignup from '@/components/NewsletterSignup'
 
 export default function Home() {
   const scrollToSection = (sectionId: string) => {
@@ -31,18 +39,26 @@ export default function Home() {
         <Header scrollToSection={scrollToSection} />
         <main>
           <HeroSection scrollToSection={scrollToSection} />
+          <BenefitsStrip />
           <AboutSection />
+          <TrustBadges />
           <AwardsSection />
-          <SpecialOffersSection />
           <VirtualTourSection />
+          {/* <BookingWidget /> */}
           <RoomsSection />
+          <PackagesSection />
           <AmenitiesSection />
           <GallerySection />
           <TestimonialsSection />
+          <LocalAttractions />
+          <SpecialOffersSection />
+          <FAQSection />
           <ContactSection />
+          <NewsletterSignup />
         </main>
         <Footer scrollToSection={scrollToSection} />
         {/* <CookieConsent /> */}
+        {/* <StickyBookingBar /> */}
         <FloatingCTA />
       </div>
     </ErrorBoundary>

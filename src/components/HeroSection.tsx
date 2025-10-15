@@ -17,7 +17,7 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
   return (
     <section
       id='home'
-      className='relative min-h-[70vh] sm:min-h-[80vh] lg:h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0'
+      className='relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[80vh] flex items-center justify-center overflow-hidden pt-20 md:pt-0'
     >
       <div className='absolute inset-0'>
         <Image

@@ -51,7 +51,7 @@ export default function RoomsSection() {
   }
 
   return (
-    <section id='rooms' className='py-20 px-4 bg-accent/30'>
+    <section id='rooms' className='py-20 px-4 bg-accent/20'>
       <div className='max-w-6xl mx-auto'>
         <motion.div
           initial='initial'
