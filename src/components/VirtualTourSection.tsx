@@ -35,7 +35,7 @@ export default function VirtualTourSection() {
           whileInView='animate'
           viewport={{ once: true }}
           variants={fadeInUp}
-          className='grid grid-cols-1 lg:grid-cols-2 gap-8'
+          className='grid grid-cols-1 gap-8'
         >
           {/* 360° Virtual Tour */}
           <div className='space-y-4'>
@@ -56,28 +56,6 @@ export default function VirtualTourSection() {
             </div>
             <p className='text-center text-text-light'>
               Explore our luxurious interiors with immersive 360° views
-            </p>
-          </div>
-
-          {/* Google Street View */}
-          <div className='space-y-4'>
-            <h3 className='text-2xl font-semibold text-primary text-center'>
-              Street View
-            </h3>
-            <div className='relative rounded-2xl overflow-hidden shadow-2xl aspect-video'>
-              <iframe
-                src='https://www.google.com/maps/embed?pb=!4v1760415844686!6m8!1m7!1sCAoSHENJQUJJaEFHYnl3N2d5aTVZMmVrTnA0QUFfcU4.!2m2!1d22.47300479424883!2d78.43534598419402!3f182.65335602840915!4f7.657203425583134!5f0.7820865974627469'
-                width='100%'
-                height='100%'
-                style={{ border: 0 }}
-                allowFullScreen
-                loading='lazy'
-                referrerPolicy='no-referrer-when-downgrade'
-                className='absolute inset-0 w-full h-full'
-              />
-            </div>
-            <p className='text-center text-text-light'>
-              View our hotel from the street and explore the surrounding area
             </p>
           </div>
         </motion.div>

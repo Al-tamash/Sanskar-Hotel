@@ -17,7 +17,7 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
   return (
     <section
       id='home'
-      className='relative min-h-screen lg:h-screen flex items-center justify-center overflow-hidden'
+      className='relative min-h-[70vh] sm:min-h-[80vh] lg:h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0'
     >
       <div className='absolute inset-0'>
         <Image
@@ -37,17 +37,17 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
         variants={fadeInUp}
         className='relative z-10 text-center px-4 max-w-6xl mx-auto w-full'
       >
-        <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight'>
+        <h1 className='text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 sm:mb-6 leading-tight'>
           Welcome to Sanskar Hotel
         </h1>
-        <p className='text-lg sm:text-xl md:text-2xl lg:text-3xl text-primary mb-8 font-light'>
+        <p className='text-base sm:text-xl md:text-2xl lg:text-3xl text-primary mb-6 sm:mb-8 font-light'>
           Where Luxury Meets Tradition
         </p>
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => scrollToSection('contact')}
-          className='bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl'
+          className='bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl'
         >
           Book Now
         </motion.button>

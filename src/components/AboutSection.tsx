@@ -26,7 +26,7 @@ const AboutSection = () => {
 
   return (
     <section id='about' className='py-16 bg-background'>
-      <div className='max-w-6xl mx-auto  '>
+      <div className='max-w-6xl mx-auto px-4 sm:px-6'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -43,7 +43,7 @@ const AboutSection = () => {
           </p>
         </motion.div>
 
-        <div className='grid md:grid-cols-2 gap-12 items-center mb-12'>
+        <div className='grid md:grid-cols-2 gap-8 sm:gap-12 items-center mb-12'>
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -55,7 +55,7 @@ const AboutSection = () => {
               alt='Sanskar Hotel'
               width={600}
               height={400}
-              className='rounded-2xl shadow-lg w-full h-[400px] object-cover'
+              className='rounded-2xl shadow-lg w-full h-64 sm:h-80 md:h-[400px] object-cover'
             />
           </motion.div>
 

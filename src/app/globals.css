@@ -132,6 +132,17 @@
   }
 }
 
+/* Mobile-friendly defaults */
+@layer base {
+  html, body {
+    overflow-x: hidden;
+  }
+  /* Ensure anchor navigation accounts for the fixed header height */
+  section {
+    scroll-margin-top: 5rem; /* ~80px header space */
+  }
+}
+
 /* Custom utility classes for Sanskar Hotel */
 @layer utilities {
   .bg-primary {

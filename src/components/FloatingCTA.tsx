@@ -25,7 +25,13 @@ export default function FloatingCTA() {
   }
 
   return (
-    <div className='fixed bottom-4   right-4   z-50 flex flex-col items-end gap-2  '>
+    <div
+      className='fixed z-50 flex flex-col items-end gap-2'
+      style={{
+        bottom: 'calc(env(safe-area-inset-bottom, 0) + 1rem)',
+        right: 'calc(env(safe-area-inset-right, 0) + 1rem)',
+      }}
+    >
       {/* Expanded Options */}
       {isOpen && (
         <motion.div
