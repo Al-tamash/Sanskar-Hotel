@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const paymentMethods = [
   { name: 'Visa', icon: '💳' },
@@ -15,10 +15,15 @@ export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     checkIn: '',
     checkOut: '',
+    guests: '1',
+    rooms: '1',
     message: '',
   })
+
+  const [selectedRoom, setSelectedRoom] = useState<string | null>(null)
 
   const [formErrors, setFormErrors] = useState<Record<string, string>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -39,6 +44,26 @@ export default function ContactSection() {
     initial: { opacity: 0, x: 50 },
     animate: { opacity: 1, x: 0 },
     transition: { duration: 0.6 },
+  }
+
+  const buildWhatsAppUrl = (phone: string, text: string) => {
+    const encoded = encodeURIComponent(text)
+    try {
+      const ua = navigator.userAgent || ''
+      const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(ua)
+      if (!isMobile) {
+        return `https://web.whatsapp.com/send?phone=${phone}&text=${encoded}`
+      }
+    } catch {}
+    return `https://api.whatsapp.com/send?phone=${phone}&text=${encoded}`
+  }
+
+  const openWhatsApp = (url: string) => {
+    if (typeof window === 'undefined') return
+    const win = window.open(url, '_blank')
+    if (!win) {
+      window.location.href = url
+    }
   }
 
   const handleInputChange = (
@@ -66,6 +91,12 @@ export default function ContactSection() {
       errors.email = 'Please enter a valid email'
     }
 
+    if (!formData.phone.trim()) {
+      errors.phone = 'Phone is required'
+    } else if (!/^\+?\d{10,15}$/.test(formData.phone.replace(/\s|-/g, ''))) {
+      errors.phone = 'Please enter a valid phone number'
+    }
+
     if (!formData.checkIn) {
       errors.checkIn = 'Check-in date is required'
     }
@@ -82,6 +113,14 @@ export default function ContactSection() {
       errors.checkOut = 'Check-out date must be after check-in date'
     }
 
+    if (!formData.guests || parseInt(formData.guests, 10) < 1) {
+      errors.guests = 'Guests must be at least 1'
+    }
+
+    if (!formData.rooms || parseInt(formData.rooms, 10) < 1) {
+      errors.rooms = 'Rooms must be at least 1'
+    }
+
     setFormErrors(errors)
     return Object.keys(errors).length === 0
   }
@@ -95,24 +134,57 @@ export default function ContactSection() {
 
     setIsSubmitting(true)
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    const lines = [
+      'Booking Request - Sanskar Hotel',
+      '--------------------------------',
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      `Phone: ${formData.phone}`,
+      selectedRoom ? `Room: ${selectedRoom}` : undefined,
+      `Check-in: ${formData.checkIn}`,
+      `Check-out: ${formData.checkOut}`,
+      `Guests: ${formData.guests}`,
+      `Rooms: ${formData.rooms}`,
+      formData.message ? `Message: ${formData.message}` : undefined,
+      `Submitted: ${new Date().toLocaleString()}`,
+    ].filter(Boolean) as string[]
 
-    alert(
-      'Booking request submitted successfully! We will contact you soon.\n\nYou can find our location at: Subhash Road, near SBI, Pachmarhi, Madhya Pradesh 461881, India\n\nClick the map link in the contact section for directions!'
-    )
+    const whatsappUrl = buildWhatsAppUrl('919479592923', lines.join('\n'))
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      checkIn: '',
-      checkOut: '',
-      message: '',
-    })
-
-    setIsSubmitting(false)
+    try {
+      openWhatsApp(whatsappUrl)
+    } finally {
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        checkIn: '',
+        checkOut: '',
+        guests: '1',
+        rooms: '1',
+        message: '',
+      })
+      setSelectedRoom(null)
+      setIsSubmitting(false)
+    }
   }
+
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        const room = sessionStorage.getItem('selectedRoom')
+        if (room) {
+          setSelectedRoom(room)
+          setFormData((prev) => ({
+            ...prev,
+            message: prev.message || `Interested in booking: ${room}`,
+          }))
+          sessionStorage.removeItem('selectedRoom')
+        }
+      }
+    } catch {}
+  }, [])
 
   return (
     <>
@@ -149,7 +221,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <div className='font-semibold text-primary'>Phone</div>
-                    <div className='text-text-light'>+91 98765 43210</div>
+                    <div className='text-text-light'>+91 9479592923</div>
                   </div>
                 </div>
 
@@ -190,7 +262,7 @@ export default function ContactSection() {
               <div className='bg-white rounded-lg shadow-lg p-6'>
                 <div className='w-full h-64 rounded overflow-hidden mb-4'>
                   <iframe
-                    src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.123456789!2d78.4337!3d22.4674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDI4JzAyLjciTiA3OMKwMjYnMDIuMiJF!5e0!3m2!1sen!2sin!4v1234567890'
+                    src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.830454376884!2d78.4327010747543!3d22.473004736614307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397e3a322a38a84b%3A0x2eb36a95a5d2ec83!2sOYO%20Hotel%20Sanskaar!5e0!3m2!1sen!2sin!4v1760773245618!5m2!1sen!2sin'
                     width='100%'
                     height='100%'
                     style={{ border: 0 }}
@@ -211,9 +283,16 @@ export default function ContactSection() {
               viewport={{ once: true }}
               variants={fadeInRight}
             >
-              <h3 className='text-2xl font-serif font-bold text-primary mb-6'>
+              <h3 className='text-2xl font-serif font-bold text-primary mb-2'>
                 Book Your Stay
               </h3>
+              {selectedRoom && (
+                <div className='mb-4'>
+                  <span className='inline-block text-sm bg-primary/10 text-primary px-3 py-1 rounded-full'>
+                    Selected Room: {selectedRoom}
+                  </span>
+                </div>
+              )}
 
               <form
                 onSubmit={handleSubmit}
@@ -273,6 +352,35 @@ export default function ContactSection() {
                   {formErrors.email && (
                     <p id='email-error' className='text-red-500 text-sm mt-1'>
                       {formErrors.email}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label
+                    htmlFor='phone'
+                    className='block text-sm font-medium text-primary mb-2'
+                  >
+                    Phone
+                  </label>
+                  <input
+                    id='phone'
+                    name='phone'
+                    type='tel'
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 ${
+                      formErrors.phone ? 'border-red-500' : 'border-primary/20'
+                    }`}
+                    placeholder='+91 98765 43210'
+                    aria-required='true'
+                    aria-describedby={
+                      formErrors.phone ? 'phone-error' : undefined
+                    }
+                  />
+                  {formErrors.phone && (
+                    <p id='phone-error' className='text-red-500 text-sm mt-1'>
+                      {formErrors.phone}
                     </p>
                   )}
                 </div>
@@ -344,6 +452,65 @@ export default function ContactSection() {
                   </div>
                 </div>
 
+                <div className='grid grid-cols-2 gap-4'>
+                  <div>
+                    <label
+                      htmlFor='guests'
+                      className='block text-sm font-medium text-primary mb-2'
+                    >
+                      No. of Guests
+                    </label>
+                    <input
+                      id='guests'
+                      name='guests'
+                      type='number'
+                      min={1}
+                      value={formData.guests}
+                      onChange={handleInputChange}
+                      className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 ${
+                        formErrors.guests ? 'border-red-500' : 'border-primary/20'
+                      }`}
+                      aria-required='true'
+                      aria-describedby={
+                        formErrors.guests ? 'guests-error' : undefined
+                      }
+                    />
+                    {formErrors.guests && (
+                      <p id='guests-error' className='text-red-500 text-sm mt-1'>
+                        {formErrors.guests}
+                      </p>
+                    )}
+                  </div>
+                  <div>
+                    <label
+                      htmlFor='rooms'
+                      className='block text-sm font-medium text-primary mb-2'
+                    >
+                      No. of Rooms
+                    </label>
+                    <input
+                      id='rooms'
+                      name='rooms'
+                      type='number'
+                      min={1}
+                      value={formData.rooms}
+                      onChange={handleInputChange}
+                      className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 ${
+                        formErrors.rooms ? 'border-red-500' : 'border-primary/20'
+                      }`}
+                      aria-required='true'
+                      aria-describedby={
+                        formErrors.rooms ? 'rooms-error' : undefined
+                      }
+                    />
+                    {formErrors.rooms && (
+                      <p id='rooms-error' className='text-red-500 text-sm mt-1'>
+                        {formErrors.rooms}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
                 <div>
                   <label
                     htmlFor='message'
@@ -401,9 +568,16 @@ export default function ContactSection() {
               {/* Quick Contact Options */}
               <div className='mt-6 flex flex-col sm:flex-row gap-4'>
                 <motion.a
-                  href="https://wa.me/919876543210?text=Hello!%20I'm%20interested%20in%20booking%20a%20room%20at%20Sanskar%20Hotel."
-                  target='_blank'
-                  rel='noopener noreferrer'
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    openWhatsApp(
+                      buildWhatsAppUrl(
+                        '919479592923',
+                        "Hello! I'm interested in booking a room at Sanskar Hotel."
+                      )
+                    )
+                  }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className='flex-1 bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2'
@@ -419,7 +593,7 @@ export default function ContactSection() {
                 </motion.a>
 
                 <motion.a
-                  href='tel:+919876543210'
+                  href='tel:+919479592923'
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className='flex-1 bg-primary hover:bg-primary/90 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2'

@@ -21,7 +21,7 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
     >
       <div className='absolute inset-0'>
         <Image
-          src='/hero.jpg'
+          src='/images/frontview.jpg'
           alt='Sanskar Hotel Hero Banner'
           fill
           className='object-cover'

@@ -24,6 +24,7 @@ import FAQSection from '@/components/FAQSection'
 import StickyBookingBar from '@/components/StickyBookingBar'
 import LocalAttractions from '@/components/LocalAttractions'
 import NewsletterSignup from '@/components/NewsletterSignup'
+import HowToReachSection from '@/components/HowToReachSection'
 
 export default function Home() {
   const scrollToSection = (sectionId: string) => {
@@ -42,19 +43,20 @@ export default function Home() {
           <BenefitsStrip />
           <AboutSection />
           <TrustBadges />
-          <AwardsSection />
+          {/* <AwardsSection /> */}
           <VirtualTourSection />
           {/* <BookingWidget /> */}
           <RoomsSection />
-          <PackagesSection />
+          {/* <PackagesSection /> */}
           <AmenitiesSection />
           <GallerySection />
           <TestimonialsSection />
           <LocalAttractions />
+          <HowToReachSection />
           <SpecialOffersSection />
           <FAQSection />
           <ContactSection />
-          <NewsletterSignup />
+          {/* <NewsletterSignup /> */}
         </main>
         <Footer scrollToSection={scrollToSection} />
         {/* <CookieConsent /> */}

@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 
 const amenities = [
   { icon: "📶", name: "High-Speed WiFi" },
-  { icon: "💧", name: "Swimming Pool" },
   { icon: "🍽️", name: "Fine Dining Restaurant" },
   { icon: "🚗", name: "Valet Parking" },
   { icon: "⭐", name: "Premium Service" },
-  { icon: "❤️", name: "Luxury Spa" }
+  { icon: "🛎️", name: "Room Service" },
+  { icon: "🕒", name: "24/7 Reception" }
 ];
 
 export default function AmenitiesSection() {

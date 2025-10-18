@@ -50,13 +50,14 @@ const AboutSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <Image
+            {/* <Image
               src='https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop'
               alt='Sanskar Hotel'
               width={600}
               height={400}
               className='rounded-2xl shadow-lg w-full h-64 sm:h-80 md:h-[400px] object-cover'
-            />
+            /> */}
+            <Image src={'/images/f1.jpg'} alt='Sanskar Hotel' width={600} height={400} className='rounded-2xl shadow-lg w-full h-64 sm:h-80 md:h-[400px] object-cover' />
           </motion.div>
 
           <motion.div

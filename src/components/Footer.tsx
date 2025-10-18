@@ -83,7 +83,7 @@ export default function Footer({ scrollToSection }: FooterProps) {
             <ul className='space-y-3 text-light'>
               <li className='flex items-center gap-2'>
                 <Phone className='w-4 h-4 text-primary' />
-                +91 98765 43210
+                +91 9479592923
               </li>
               <li className='flex items-center gap-2'>
                 <Mail className='w-4 h-4 text-primary' />

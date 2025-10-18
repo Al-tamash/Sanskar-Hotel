@@ -26,13 +26,15 @@ export default function Header({ scrollToSection }: ScrollToSectionProps) {
   const navigationItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
-    { id: 'awards', label: 'Awards' },
-    { id: 'offers', label: 'Offers' },
+    // { id: 'awards', label: 'Awards' },
+    // { id: 'offers', label: 'Offers' },
     { id: 'virtual-tour', label: 'Virtual Tour' },
     { id: 'rooms', label: 'Rooms' },
     { id: 'amenities', label: 'Amenities' },
     { id: 'gallery', label: 'Gallery' },
     { id: 'testimonials', label: 'Testimonials' },
+    { id: 'how-to-reach', label: 'How To Reach' },
+    { id: 'faq', label: 'FAQ' },
     { id: 'contact', label: 'Contact' },
   ]
 
