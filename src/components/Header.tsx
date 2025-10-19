@@ -19,9 +19,7 @@ export default function Header({ scrollToSection }: ScrollToSectionProps) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const navbarBackground = isScrolled
-    ? 'rgba(255, 255, 255, 0.95)'
-    : 'rgba(255, 255, 255, 0.8)'
+  const navbarBgClass = isScrolled ? 'bg-background/90' : 'bg-background/70'
 
   const navigationItems = [
     { id: 'home', label: 'Home' },
@@ -43,8 +41,7 @@ export default function Header({ scrollToSection }: ScrollToSectionProps) {
       initial={slideInFromTop.initial}
       animate={slideInFromTop.animate}
       transition={slideInFromTop.transition}
-      style={{ backgroundColor: navbarBackground }}
-      className='fixed top-0 w-full z-50 backdrop-blur-sm border-b border-primary/20'
+      className={`fixed top-0 w-full z-50 backdrop-blur-sm border-b border-primary/20 ${navbarBgClass}`}
     >
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex justify-between items-center h-16'>
