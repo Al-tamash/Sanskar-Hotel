@@ -17,14 +17,14 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
   return (
     <section
       id='home'
-      className='relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[80vh] flex items-center justify-center overflow-hidden pt-20 md:pt-0'
+      className='relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden pt-20 md:pt-0'
     >
       <div className='absolute inset-0'>
         <Image
-          src='/images/frontview.jpg'
+          src='/images/f1.jpg'
           alt='Sanskar Hotel Hero Banner'
           fill
-          className='object-cover'
+          className='object-cover object-center md:object-[center_30%] lg:object-[center_35%] xl:object-[center_40%]'
           sizes='100vw'
           priority
         />

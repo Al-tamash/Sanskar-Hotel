@@ -50,7 +50,8 @@ export default function ContactSection() {
     const encoded = encodeURIComponent(text)
     try {
       const ua = navigator.userAgent || ''
-      const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(ua)
+      const isMobile =
+        /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(ua)
       if (!isMobile) {
         return `https://web.whatsapp.com/send?phone=${phone}&text=${encoded}`
       }
@@ -149,7 +150,7 @@ export default function ContactSection() {
       `Submitted: ${new Date().toLocaleString()}`,
     ].filter(Boolean) as string[]
 
-    const whatsappUrl = buildWhatsAppUrl('919479592923', lines.join('\n'))
+    const whatsappUrl = buildWhatsAppUrl('919479592023', lines.join('\n'))
 
     try {
       openWhatsApp(whatsappUrl)
@@ -221,7 +222,8 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <div className='font-semibold text-primary'>Phone</div>
-                    <div className='text-text-light'>+91 9479592923</div>
+                    <div className='text-text-light'>+91 9479592023</div>
+                    <div className='text-text-light'>+91 7470817923</div>
                   </div>
                 </div>
 
@@ -372,7 +374,7 @@ export default function ContactSection() {
                     className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 ${
                       formErrors.phone ? 'border-red-500' : 'border-primary/20'
                     }`}
-                    placeholder='+91 98765 43210'
+                    placeholder='+91 9479592023'
                     aria-required='true'
                     aria-describedby={
                       formErrors.phone ? 'phone-error' : undefined
@@ -468,7 +470,9 @@ export default function ContactSection() {
                       value={formData.guests}
                       onChange={handleInputChange}
                       className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 ${
-                        formErrors.guests ? 'border-red-500' : 'border-primary/20'
+                        formErrors.guests
+                          ? 'border-red-500'
+                          : 'border-primary/20'
                       }`}
                       aria-required='true'
                       aria-describedby={
@@ -476,7 +480,10 @@ export default function ContactSection() {
                       }
                     />
                     {formErrors.guests && (
-                      <p id='guests-error' className='text-red-500 text-sm mt-1'>
+                      <p
+                        id='guests-error'
+                        className='text-red-500 text-sm mt-1'
+                      >
                         {formErrors.guests}
                       </p>
                     )}
@@ -496,7 +503,9 @@ export default function ContactSection() {
                       value={formData.rooms}
                       onChange={handleInputChange}
                       className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 ${
-                        formErrors.rooms ? 'border-red-500' : 'border-primary/20'
+                        formErrors.rooms
+                          ? 'border-red-500'
+                          : 'border-primary/20'
                       }`}
                       aria-required='true'
                       aria-describedby={
@@ -568,12 +577,12 @@ export default function ContactSection() {
               {/* Quick Contact Options */}
               <div className='mt-6 flex flex-col sm:flex-row gap-4'>
                 <motion.a
-                  href="#"
+                  href='#'
                   onClick={(e) => {
                     e.preventDefault()
                     openWhatsApp(
                       buildWhatsAppUrl(
-                        '919479592923',
+                        '919479592023',
                         "Hello! I'm interested in booking a room at Sanskar Hotel."
                       )
                     )

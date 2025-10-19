@@ -10,7 +10,7 @@ const testimonials = [
     name: 'Priya Sharma',
     rating: 5,
     comment:
-      'Absolutely stunning hotel with impeccable service. The rooms are luxurious and the staff goes above and beyond.',
+      'Rooms were spotless and comfortable. 24/7 reception handled our late check-in smoothly. Highly recommend Sanskar Hotel.',
     location: 'Mumbai, India',
   },
   {
@@ -18,7 +18,7 @@ const testimonials = [
     name: 'Raj Patel',
     rating: 5,
     comment:
-      'A perfect blend of traditional elegance and modern comfort. The spa facilities are world-class.',
+      'Excellent hospitality and quick room service. The property is well maintained and perfect for family stays.',
     location: 'Delhi, India',
   },
   {
@@ -26,8 +26,40 @@ const testimonials = [
     name: 'Anita Desai',
     rating: 5,
     comment:
-      'Exceeded all expectations! The attention to detail and personalized service made our stay memorable.',
+      'Great value for money. Clean rooms, courteous staff, and a hassle-free booking experience. Will definitely return.',
     location: 'Bangalore, India',
+  },
+  {
+    id: 4,
+    name: 'Vikas Mehta',
+    rating: 5,
+    comment:
+      'Spacious, clean rooms and very responsive reception. Room service was quick and the food was tasty.',
+    location: 'Pune, India',
+  },
+  {
+    id: 5,
+    name: 'Neha Agarwal',
+    rating: 5,
+    comment:
+      'Smooth check-in at midnight, thanks to 24/7 reception. The staff is polite and the property is well kept.',
+    location: 'Jaipur, India',
+  },
+  {
+    id: 6,
+    name: 'Aman Verma',
+    rating: 5,
+    comment:
+      'Great hospitality and quick housekeeping support. Excellent value near key attractions.',
+    location: 'Ahmedabad, India',
+  },
+  {
+    id: 7,
+    name: 'Riya Singh',
+    rating: 5,
+    comment:
+      'Family-friendly stay with clean linens, prompt room service, and courteous staff. Highly recommended.',
+    location: 'Udaipur, India',
   },
 ]
 

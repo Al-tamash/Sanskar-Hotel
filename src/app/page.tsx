@@ -53,7 +53,7 @@ export default function Home() {
           <TestimonialsSection />
           <LocalAttractions />
           <HowToReachSection />
-          <SpecialOffersSection />
+          {/* <SpecialOffersSection /> */}
           <FAQSection />
           <ContactSection />
           {/* <NewsletterSignup /> */}

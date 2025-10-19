@@ -7,17 +7,37 @@ import { useState } from 'react'
 export default function FloatingCTA() {
   const [isOpen, setIsOpen] = useState(false)
 
-  const whatsappNumber = '+919876543210' // Replace with actual WhatsApp number
-  const phoneNumber = '+919876543210' // Replace with actual phone number
+  const whatsappNumber = '+919479592023' // Replace with actual WhatsApp number
+  const phoneNumber = '+919479592023' // Replace with actual phone number
 
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent(
       "Hello! I'm interested in booking a room at Sanskar Hotel."
     )
-    window.open(
-      `https://wa.me/${whatsappNumber.replace(/[^\d]/g, '')}?text=${message}`,
-      '_blank'
-    )
+    const phone = whatsappNumber.replace(/[^\d]/g, '')
+    const deepLink = `whatsapp://send?phone=${phone}&text=${message}`
+    const webLink = `https://wa.me/${phone}?text=${message}`
+
+    let fallbackTimeout: number | null = null
+
+    const onVisibilityChange = () => {
+      if (document.visibilityState === 'hidden' && fallbackTimeout) {
+        window.clearTimeout(fallbackTimeout)
+        fallbackTimeout = null
+        document.removeEventListener('visibilitychange', onVisibilityChange)
+      }
+    }
+
+    document.addEventListener('visibilitychange', onVisibilityChange)
+
+    fallbackTimeout = window.setTimeout(() => {
+      window.open(webLink, '_blank')
+      if (onVisibilityChange) {
+        document.removeEventListener('visibilitychange', onVisibilityChange)
+      }
+    }, 1500)
+
+    window.location.href = deepLink
   }
 
   const handleCallClick = () => {
