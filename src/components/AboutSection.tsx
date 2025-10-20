@@ -57,7 +57,13 @@ const AboutSection = () => {
               height={400}
               className='rounded-2xl shadow-lg w-full h-64 sm:h-80 md:h-[400px] object-cover'
             /> */}
-            <Image src={'/images/f1.jpg'} alt='Sanskar Hotel' width={600} height={400} className='rounded-2xl shadow-lg w-full h-64 sm:h-80 md:h-[400px] object-cover' />
+            <Image
+              src={'/images/frontview1.jpg'}
+              alt='Sanskar Hotel'
+              width={600}
+              height={400}
+              className='rounded-2xl shadow-lg w-full h-64 sm:h-80 md:h-[400px] object-cover'
+            />
           </motion.div>
 
           <motion.div

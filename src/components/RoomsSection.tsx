@@ -8,20 +8,20 @@ import { Button } from '@/components/ui/button'
 const rooms = [
   {
     id: 1,
-    name: 'Standard Room',
+    name: 'Mini Deluxe ',
     price: '₹1,299',
-    image: '/images/r8.jpg',
+    image: '/images/r5.jpg',
     panoramaUrl:
       'https://www.google.com/maps/embed?pb=!4v1760789915150!6m8!1m7!1sCAoSHENJQUJJaEFHYnlmUUloTGZWMmVrTnJvQUJHelM.!2m2!1d22.4730121533499!2d78.43533002169733!3f143.19869023709975!4f-8.639471418220936!5f0.7820865974627469',
     features: ['AC', 'LED TV with DTH', 'Free Wi-Fi', 'Tea/Coffee Kettle'],
   },
   {
     id: 2,
-    name: 'Deluxe Room',
-    price: '₹2,999',
-    image: '/images/r13.jpg',
+    name: 'Deluxe ',
+    price: '₹1,599',
+    image: '/images/deluxroom.jpg',
     panoramaUrl:
-      'https://www.google.com/maps/embed?pb=!4v1760789584687!6m8!1m7!1sCAoSHENJQUJJaEFHYnl3N2d5aTVZMmVrTnNRQUNNQ1k.!2m2!1d22.47293460137321!2d78.43532698535257!3f326.94487420447103!4f-6.655246767277774!5f0.7820865974627469',
+      'https://www.google.com/maps/embed?pb=!4v1760956066317!6m8!1m7!1sCAoSHENJQUJJaEFHYndQVHlRNjlOV2VrTnVjQUNpUWg.!2m2!1d22.47295671824475!2d78.43530816001302!3f194.94465608531695!4f-18.937556310629105!5f0.7820865974627469',
     features: [
       'Spacious Seating Area',
       'Mini Fridge',
@@ -31,11 +31,11 @@ const rooms = [
   },
   {
     id: 3,
-    name: 'Superior Room',
-    price: '₹3,999',
-    image: '/images/r23.jpg',
+    name: 'Standard Deluxe ',
+    price: '₹2,499',
+    image: '/images/r15.jpg',
     panoramaUrl:
-      'https://www.google.com/maps/embed?pb=!4v1760789771008!6m8!1m7!1sCAoSHENJQUJJaEFHYndQVHlRNjlOV2VrTnRJQUJadW0.!2m2!1d22.47297934963453!2d78.43531752930687!3f170.79773596577255!4f-12.92207803081908!5f0.7820865974627469',
+      'https://www.google.com/maps/embed?pb=!4v1760955681784!6m8!1m7!1sCAoSHENJQUJJaEFHYndQVHlRNjlOV2VrTnJNQUJpZmg.!2m2!1d22.47297222367986!2d78.43536151292484!3f324.5092576288928!4f-21.97581801912851!5f0.7820865974627469',
     features: [
       'City/Garden View',
       'Premium Linen',
@@ -45,11 +45,11 @@ const rooms = [
   },
   {
     id: 4,
-    name: 'Family Room',
-    price: '₹4,999',
-    image: '/images/r15.jpg',
+    name: 'Super Deluxe  ',
+    price: '₹2,699',
+    image: '/images/r23.jpg',
     panoramaUrl:
-      'https://www.google.com/maps/embed?pb=!4v1760789984918!6m8!1m7!1sCAoSHENJQUJJaEFHYndQVHlRNjlOV2VrTnJNQUJpZmg.!2m2!1d22.47297222367986!2d78.43536151292484!3f330.3827296896589!4f-10.322273751596498!5f0.7820865974627469',
+      'https://www.google.com/maps/embed?pb=!4v1760955902361!6m8!1m7!1sCAoSHENJQUJJaEFHYndQVHlRNjlOV2VrTnRJQUJadW0.!2m2!1d22.47297934963453!2d78.43531752930687!3f170.58569647230013!4f-6.445516120044303!5f0.7820865974627469',
     features: [
       '2 Queen Beds',
       'Extra Bed on Request',
@@ -163,7 +163,10 @@ export default function RoomsSection() {
                             sessionStorage.setItem('selectedRoom', room.name)
                             const el = document.getElementById('contact')
                             if (el) {
-                              el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                              el.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start',
+                              })
                             } else {
                               window.location.hash = '#contact'
                             }
