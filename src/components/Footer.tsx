@@ -97,7 +97,7 @@ export default function Footer({ scrollToSection }: FooterProps) {
                   rel='noopener noreferrer'
                   className='hover:text-primary transition-colors'
                 >
-                  Subhash Road, near SBI, Pachmarhi, Madhya Pradesh 461881,
+                  Subhash Road, Near Old SBI, Pachmarhi, Madhya Pradesh 461881,
                   India
                 </Link>
               </li>

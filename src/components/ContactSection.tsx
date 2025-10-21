@@ -250,7 +250,7 @@ export default function ContactSection() {
                         rel='noopener noreferrer'
                         className='hover:text-primary transition-colors'
                       >
-                        Subhash Road, near SBI,
+                        Subhash Road, Near Old SBI,
                         <br />
                         Pachmarhi, Madhya Pradesh
                         <br />
