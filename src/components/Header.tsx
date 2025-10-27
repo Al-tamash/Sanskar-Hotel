@@ -31,6 +31,7 @@ export default function Header({ scrollToSection }: ScrollToSectionProps) {
     { id: 'amenities', label: 'Amenities' },
     { id: 'gallery', label: 'Gallery' },
     { id: 'testimonials', label: 'Testimonials' },
+    { id: 'local-attractions', label: 'Local Attractions' },
     { id: 'how-to-reach', label: 'How To Reach' },
     { id: 'faq', label: 'FAQ' },
     { id: 'contact', label: 'Contact' },

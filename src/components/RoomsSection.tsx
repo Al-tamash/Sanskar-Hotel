@@ -10,7 +10,7 @@ const rooms = [
     id: 1,
     name: 'Mini Deluxe ',
     price: '₹1,299',
-    image: '/images/r5.jpg',
+    image: '/images/roomouter1.jpeg',
     panoramaUrl:
       'https://www.google.com/maps/embed?pb=!4v1760789915150!6m8!1m7!1sCAoSHENJQUJJaEFHYnlmUUloTGZWMmVrTnJvQUJHelM.!2m2!1d22.4730121533499!2d78.43533002169733!3f143.19869023709975!4f-8.639471418220936!5f0.7820865974627469',
     features: ['AC', 'LED TV with DTH', 'Free Wi-Fi', 'Tea/Coffee Kettle'],
