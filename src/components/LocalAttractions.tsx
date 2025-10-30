@@ -1,5 +1,6 @@
 'use client'
 
+import { distance } from 'framer-motion'
 import { MapPin } from 'lucide-react'
 import Image from 'next/image'
 
@@ -10,19 +11,30 @@ const spots = [
     image: '/nearbyattractionimg/e1.jpeg',
   },
   {
-    name: 'Jata Shankar Caves',
+    name: 'Chauraghar Mahadev Temple',
     distance: '1.8 km',
     image: '/nearbyattractionimg/e3.jpeg',
   },
   {
+    name: 'Jatashnakar Temple',
+    distance: '1.6 km',
+    image: '/nearbyattractionimg/jatashankar.jpeg',
+  },
+
+  {
     name: 'Dhoopgarh Sunset Point',
     distance: '5.4 km',
-    image: '/nearbyattractionimg/e2.jpeg',
+    image: '/nearbyattractionimg/sunpoint.jpeg',
   },
   {
     name: 'Pandav Caves',
     distance: '2.1 km',
     image: '/nearbyattractionimg/e4.jpeg',
+  },
+  {
+    name: 'Pachmarhi Hill Station',
+    distance: '1.4 km',
+    image: '/nearbyattractionimg/e2.jpeg',
   },
 ]
 
@@ -50,7 +62,7 @@ export default function LocalAttractions() {
                 allowFullScreen
                 loading='lazy'
                 referrerPolicy='no-referrer-when-downgrade'
-                className='absolute inset-0 w-full h-full'
+                className='absolute inset-0 w-full h-full '
               />
             </div>
           </div>
