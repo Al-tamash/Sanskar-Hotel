@@ -87,7 +87,7 @@ export default function Footer({ scrollToSection }: FooterProps) {
               </li>
               <li className='flex items-center gap-2'>
                 <Mail className='w-4 h-4 text-primary' />
-                info@sanskarhotel.com
+                info@sanskarhotel.in
               </li>
               <li className='flex items-center gap-2'>
                 <MapPin className='w-4 h-4 text-primary' />
